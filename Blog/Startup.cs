@@ -16,6 +16,9 @@ namespace Blog
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            var db = new DataBase();
+            db.Database.EnsureCreated();
         }
 
         public IConfiguration Configuration { get; }

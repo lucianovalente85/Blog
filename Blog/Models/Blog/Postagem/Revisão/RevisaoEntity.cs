@@ -7,11 +7,12 @@ namespace Blog.Models.Blog.Postagem.Revisão
 {
     public class RevisaoEntity
     {
-        public PostagemEntity Postagem { get; set; }
+        public int Id { get; set; }
         public string Texto { get; set; }
         public int Versao { get; set; }
-
         public DateTime Data { get; set; }
+        public int PostagemId { get; set; }
+        public virtual PostagemEntity Postagem { get; set; }
 
     }
 }

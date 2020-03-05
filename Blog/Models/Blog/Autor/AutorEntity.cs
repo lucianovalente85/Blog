@@ -7,6 +7,7 @@ namespace Blog.Models.Blog.Autor
 {
     public class AutorEntity
     {
-        public string nome { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
     }
 }
