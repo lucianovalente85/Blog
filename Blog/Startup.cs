@@ -18,6 +18,9 @@ namespace Blog
             Configuration = configuration;
 
             var db = new DataBase();
+            //deletando o banco
+            db.Database.EnsureDeleted();
+            //criando o banco
             db.Database.EnsureCreated();
         }
 
