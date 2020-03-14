@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,12 +8,19 @@ namespace Blog.Models.Blog.Postagem.Revisão
 {
     public class RevisaoEntity
     {
+        [Key]
         public int Id { get; set; }
-        public string Texto { get; set; }
-        public int Versao { get; set; }
-        public DateTime Data { get; set; }
-        public int PostagemId { get; set; }
-        public virtual PostagemEntity Postagem { get; set; }
 
+        public PostagemEntity Postagem { get; set; }
+
+        [MaxLength(128)]
+        [Required]
+        public string Texto { get; set; }
+
+        [Required]
+        public int Versao { get; set; }
+
+        [Required]
+        public DateTime DataCriacao { get; set; }
     }
 }
