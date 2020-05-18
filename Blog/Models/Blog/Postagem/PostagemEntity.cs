@@ -1,27 +1,22 @@
 ﻿using Blog.Models.Blog.Autor;
 using Blog.Models.Blog.Categoria;
-using Blog.Models.Blog.Etiqueta;
-using Blog.Models.Blog.Postagem.Revisão;
-using Blog.Models.Blog.Postagem.Revisão.Classificação;
-using Blog.Models.Blog.Postagem.Revisão.Comentário;
-using Blog.Models.PostagemEtiqueta;
-using System;
 using System.Collections.Generic;
+using PWABlog.Models.Blog.Postagem.Revisao;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using Blog.Models.Blog.Postagem.Classificacao;
+using Blog.Models.Blog.Postagem.Comentario;
 
 namespace Blog.Models.Blog.Postagem
 {
     public class PostagemEntity
     {
-        [Key]
+        [Key] 
         public int Id { get; set; }
 
-        [MaxLength(128)]
-        [Required]
+        [MaxLength(128)] 
+        [Required] 
         public string Titulo { get; set; }
-
+        
         [MaxLength(640)]
         [Required]
         public string Descricao { get; set; }

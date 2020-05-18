@@ -2,19 +2,16 @@
 using Blog.Models.Blog.Categoria;
 using Blog.Models.Blog.Etiqueta;
 using Blog.Models.Blog.Postagem;
-using Blog.Models.Blog.Postagem.Revisão;
-using Blog.Models.Blog.Postagem.Revisão.Classificação;
-using Blog.Models.Blog.Postagem.Revisão.Comentário;
-using Blog.Models.PostagemEtiqueta;
+using Blog.Models.Blog.Postagem.Classificacao;
+using Blog.Models.Blog.Postagem.Comentario;
+using Blog.Models.Blog.Postagem.Revisao;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Blog.Models.ControleDeAcesso;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Blog
 {
-    public class DataBase : DbContext 
+    public class DataBase : IdentityDbContext<Usuario, Papel, int>
     {
         public DbSet<CategoriaEntity> Categorias { get; set; }
         public DbSet<AutorEntity> Autores { get; set; }
@@ -29,7 +26,7 @@ namespace Blog
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseMySql("server=localhost;database=blog;user=root;password=root");
+            optionsBuilder.UseMySql("server=localhost;database=blog;user=root;password=123456");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -45,8 +42,9 @@ namespace Blog
                 .WithMany(p => p.PostagensEtiquetas);
 
             modelBuilder.Entity<PostagemEtiquetaEntity>()
-                .HasOne(pe => pe.Etiqueta)
-                .WithMany(e => e.PostagensEtiquetas);
+               .HasOne(pe => pe.Etiqueta)
+               .WithMany(e => e.PostagensEtiquetas);
+
 
         }
     }

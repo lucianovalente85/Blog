@@ -1,10 +1,7 @@
-﻿using Blog.Models.Blog.Categoria;
-using Blog.Models.PostagemEtiqueta;
-using System;
+﻿using PWABlog.Models.Blog.Postagem;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using Blog.Models.Blog.Categoria;
 
 namespace Blog.Models.Blog.Etiqueta
 {
