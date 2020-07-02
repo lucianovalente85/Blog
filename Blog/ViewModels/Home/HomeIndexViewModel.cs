@@ -2,23 +2,24 @@
 
 namespace Blog.ViewModels.Home
 {
-    public class HomeIndexViewModel
+    public class HomeIndexViewModel : ViewModelAreaComum
     {
         public ICollection<PostagemHomeIndex> Postagens { get; set; }
 
-        public ICollection<Categoria> Categorias { get; set; }
+        public ICollection<CategoriaHomeIndex> Categorias { get; set; }
 
-        public ICollection<Etiqueta> Etiquetas { get; set; }
+        public ICollection<EtiquetaHomeIndex> Etiquetas { get; set; }
 
-        public ICollection<PostagemPopular> PostagensPopulares { get; set; }
+        public ICollection<PostagemPopularHomeIndex> PostagensPopulares { get; set; }
 
 
         public HomeIndexViewModel()
         {
+            TituloPagina = "Blog PWA";
             Postagens = new List<PostagemHomeIndex>();
-            Categorias = new List<Categoria>();
-            Etiquetas = new List<Etiqueta>();
-            PostagensPopulares = new List<PostagemPopular>();
+            Categorias = new List<CategoriaHomeIndex>();
+            Etiquetas = new List<EtiquetaHomeIndex>();
+            PostagensPopulares = new List<PostagemPopularHomeIndex>();
         }
     }
 
@@ -32,21 +33,22 @@ namespace Blog.ViewModels.Home
         public string PostagemId { get; set; }
     }
 
-    public class Categoria
+    public class CategoriaHomeIndex
     {
         public string Nome { get; set; }
         public string CategoriaId { get; set; }
     }
 
-    public class Etiqueta
+    public class EtiquetaHomeIndex
     {
         public string Nome { get; set; }
         public string EtiquetaId { get; set; }
     }
 
-    public class PostagemPopular
+    public class PostagemPopularHomeIndex
     {
         public string Titulo { get; set; }
         public string PostagemId { get; set; }
+        public string Categoria { get; set; }
     }
 }
